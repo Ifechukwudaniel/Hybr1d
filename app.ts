@@ -1,19 +1,22 @@
 import  express ,{ Express, Request, Response } from 'express';
 import {config} from 'dotenv';
+import {Server, createServer} from 'http';
 import * as winston from 'winston';
 import * as expressWinston from 'express-winston';
 import cors from "cors"; 
-import debug from 'debug'
-import MongooseService from './src/services/common/mongoose.service';
-
+import debug from 'debug';
+import { AuthRoutes } from './auth/auth.routes.cofig';
+import { CommonRoutesConfig } from './common/common.routes.config';
+import { ProductRoutes } from './products/products.routes.cofig';
+import { BuyersRoutes } from './buyers/buyers.routes.cofig';
 
 const log : debug.IDebugger = debug("app");
-
 config();
 
 const app: Express = express();
+const server : Server = createServer(app)
 const port = process.env.PORT;
-MongooseService
+log(port)
 
 // middleware to parse json
 app.use(express.json());
@@ -40,11 +43,20 @@ const loggerOptions: expressWinston.LoggerOptions = {
 // initialize the logger with the above configuration
 app.use(expressWinston.logger(loggerOptions));
 
+let routes: CommonRoutesConfig[]  = []
+
+routes.push(new AuthRoutes(app))
+routes.push(new ProductRoutes(app))
+routes.push(new BuyersRoutes(app))
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Express + TypeScript Server');
 });
 
-app.listen(port, () => {
-  console.log(`[server]: Server is running at https://localhost:${port}`);
+
+server.listen(port, () => {
+   log(`[server]: Server is running at https://localhost:${port}`);
+   for (const route of routes) {
+     log(`Route added  for `, route.getName())
+   }
 });
