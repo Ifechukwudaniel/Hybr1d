@@ -13,6 +13,10 @@ class UserService{
    async createUser(resource:CreateUserDto){
       return usersDaos.add(resource)
    }
+
+   async getUserByEmailWithPassword(email:string) {
+      return usersDaos.getUserByEmailWithPassword(email)
+   }
 }
 
 export default new UserService();
