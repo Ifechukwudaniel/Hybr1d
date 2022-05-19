@@ -29,7 +29,7 @@ class AuthMiddleWare {
 
    async validateBearerToken(req:Request, res:Response, next:NextFunction){
        try {
-        if(!req.headers['authorization']) return res.status(401).send({errors:["UnAuthorized access"]})
+        if(!req.headers['authorization']) return res.status(401).send({errors:["Unauthorized access"]})
         let token = req.headers['authorization'].split(" ")
         if(token[0] !== "Bearer") return res.status(401).send({errors:["Unauthorized access"]})
         let jwtSecret =  process.env.JWT_SECRET || "DATA"
