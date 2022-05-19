@@ -5,7 +5,7 @@ import productsController from './controllers/products.controller';
 
 export class ProductRoutes extends CommonRoutesConfig {
     constructor(app:Application){
-        super(app, "AuthRoutes");
+        super(app, "ProductRoutes");
     }
     configureRoutes(): Application {
         this.app.post('/api/product',[
