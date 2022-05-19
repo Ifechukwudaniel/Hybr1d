@@ -7,6 +7,11 @@ export abstract  class CommonRoutesConfig{
     constructor(app:Application, name:String){
         this.app = app
         this.name = name
+        this.configureRoutes()
+    }
+
+    getName(){
+        return this.name
     }
 
     abstract configureRoutes():Application
