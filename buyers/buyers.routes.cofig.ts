@@ -1,4 +1,5 @@
 import { Application } from 'express';
+import authMiddleware from '../auth/middleware/auth.middleware';
 import { CommonRoutesConfig } from '../common/common.routes.config'
 import buyersController from './controllers/buyers.controller';
 
@@ -9,6 +10,7 @@ export class BuyersRoutes extends CommonRoutesConfig {
     }
     configureRoutes(): Application {
         this.app.get('/api/buyer/list-of-sellers', [
+            authMiddleware.validateBearerToken,
             buyersController.listSellers
         ])
         this.app.get('/buyer/seller-catalog/:seller_id')
