@@ -11,6 +11,8 @@ import * as winston from 'winston';
 import * as expressWinston from 'express-winston';
 import cors from "cors"; 
 import debug from 'debug';
+import {serve, setup} from "swagger-ui-express"
+const swaggerDocument = require("./doc.json");
 import { AuthRoutes } from './auth/auth.routes.config';
 import { CommonRoutesConfig } from './common/common.routes.config';
 import { BuyersRoutes } from './buyers/buyers.routes.config';
@@ -57,9 +59,7 @@ routes.push(new AuthRoutes(app))
 routes.push(new BuyersRoutes(app))
 routes.push(new SellerRoutes(app))
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Express + TypeScript Server');
-});
+app.use("/", serve, setup(swaggerDocument));
 
 
 export default server.listen(port, () => {

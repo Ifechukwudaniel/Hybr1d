@@ -1,0 +1,1394 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Test",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Register",
+        "operationId": "Register",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              },
+              "example": {
+                "email": "buyers@gmail.cm",
+                "password": "1",
+                "name": "Daniel Ifechukwu",
+                "userType": 0
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Express"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "*"
+                    },
+                    "example": "*"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "34"
+                    },
+                    "example": "34"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "W/\"22-PuhM48YXMB/drz2S06gj/yhuJ3U\""
+                    },
+                    "example": "W/\"22-PuhM48YXMB/drz2S06gj/yhuJ3U\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 19 May 2022 08:42:56 GMT"
+                    },
+                    "example": "Thu, 19 May 2022 08:42:56 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "timeout=5"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Register"
+                },
+                "example": {
+                  "userId": "uh9F-IXqZxlwgSUTrDfh2"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Login",
+        "operationId": "Login",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              },
+              "example": {
+                "email": "seller@gmail.cm",
+                "password": "1"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Express"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "*"
+                    },
+                    "example": "*"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "271"
+                    },
+                    "example": "271"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "W/\"10f-5h41caZPJMu+bAJqmwn3Eq8wxTU\""
+                    },
+                    "example": "W/\"10f-5h41caZPJMu+bAJqmwn3Eq8wxTU\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 19 May 2022 11:26:37 GMT"
+                    },
+                    "example": "Thu, 19 May 2022 11:26:37 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "timeout=5"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Login"
+                },
+                "example": {
+                  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJDelVBVWRBTnZpd2tGbzVQZkdvQUIiLCJwcm92aWRlciI6ImVtYWlsIiwiZW1haWwiOiJkYW5keUBnbWFpbC5tYWZhZmEiLCJ1c2VyVHlwZSI6MCwiaWF0IjoxNjUyOTU5NTk3LCJleHAiOjE2NTI5OTU1OTd9.USqLZZ_abIiAOjAXF3ngStKREfwOJhfbk3RP5cx81LM"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/buyer/list-of-sellers": {
+      "get": {
+        "tags": ["Buyers"],
+        "summary": "List Of Sellers",
+        "operationId": "ListOfSellers",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Express"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "*"
+                    },
+                    "example": "*"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "557"
+                    },
+                    "example": "557"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "W/\"22d-1rYZdlENHxkVhKvSqrr3uMm/iTI\""
+                    },
+                    "example": "W/\"22d-1rYZdlENHxkVhKvSqrr3uMm/iTI\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 19 May 2022 12:16:33 GMT"
+                    },
+                    "example": "Thu, 19 May 2022 12:16:33 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "timeout=5"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ListOfSeller"
+                  },
+                  "description": "",
+                  "example": [
+                    {
+                      "_id": "kIg1AnlloNunDisEYW1pR",
+                      "email": "dandynamicx@gmail.ma",
+                      "name": "Daniel Ifechukwu",
+                      "slug": "Daniel-Ifechukwu-IBknj",
+                      "userType": 1,
+                      "__v": 0
+                    },
+                    {
+                      "_id": "qrV6rgQ0KZhsJos9EXe8n",
+                      "email": "dandy@gmail.ma",
+                      "name": "Daniel Ifechukwu",
+                      "slug": "Daniel-Ifechukwu-aHF4d",
+                      "userType": 1,
+                      "__v": 0
+                    },
+                    {
+                      "_id": "0lN2kYm3Wwv9nQ8zxK_94",
+                      "email": "dandy@gmail.mafaf",
+                      "name": "Daniel Ifechukwu",
+                      "slug": "Daniel-Ifechukwu-oo3Z",
+                      "userType": 1,
+                      "__v": 0
+                    },
+                    {
+                      "_id": "X-1p9riDq5oTgAPlZT41d",
+                      "email": "dandy@gmail.mafafy",
+                      "name": "Daniel Ifechukwu",
+                      "slug": "Daniel-Ifechukwu-5k6Cb",
+                      "userType": 1,
+                      "__v": 0
+                    }
+                  ]
+                },
+                "example": [
+                  {
+                    "_id": "kIg1AnlloNunDisEYW1pR",
+                    "email": "dandynamicx@gmail.ma",
+                    "name": "Daniel Ifechukwu",
+                    "slug": "Daniel-Ifechukwu-IBknj",
+                    "userType": 1,
+                    "__v": 0
+                  },
+                  {
+                    "_id": "qrV6rgQ0KZhsJos9EXe8n",
+                    "email": "dandy@gmail.ma",
+                    "name": "Daniel Ifechukwu",
+                    "slug": "Daniel-Ifechukwu-aHF4d",
+                    "userType": 1,
+                    "__v": 0
+                  },
+                  {
+                    "_id": "0lN2kYm3Wwv9nQ8zxK_94",
+                    "email": "dandy@gmail.mafaf",
+                    "name": "Daniel Ifechukwu",
+                    "slug": "Daniel-Ifechukwu-oo3Z",
+                    "userType": 1,
+                    "__v": 0
+                  },
+                  {
+                    "_id": "X-1p9riDq5oTgAPlZT41d",
+                    "email": "dandy@gmail.mafafy",
+                    "name": "Daniel Ifechukwu",
+                    "slug": "Daniel-Ifechukwu-5k6Cb",
+                    "userType": 1,
+                    "__v": 0
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/buyer/seller-catalog/:seller_id": {
+      "get": {
+        "tags": ["Buyers"],
+        "summary": "Catalog By Seller_id",
+        "operationId": "CatalogBySeller_id",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Express"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "*"
+                    },
+                    "example": "*"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "179"
+                    },
+                    "example": "179"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "W/\"b3-IUBLF0TCwG5SmNw3zRGQJ0Xa8g8\""
+                    },
+                    "example": "W/\"b3-IUBLF0TCwG5SmNw3zRGQJ0Xa8g8\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Fri, 20 May 2022 16:09:05 GMT"
+                    },
+                    "example": "Fri, 20 May 2022 16:09:05 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "timeout=5"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatalogBySeller_id"
+                },
+                "example": {
+                  "_id": "6287b7171a4f43540ac43117",
+                  "products": [
+                    {
+                      "_id": "McTErN9p0cZuin5gNpl8g",
+                      "name": "Beans",
+                      "price": 1000,
+                      "slug": "Beans-W9dc_",
+                      "__v": 0
+                    }
+                  ],
+                  "sellerId": "qrV6rgQ0KZhsJos9EXe8n",
+                  "__v": 0
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/buyer/create-order/:seller_id": {
+      "post": {
+        "tags": ["Buyers"],
+        "summary": "Create Order By Seller_id",
+        "operationId": "CreateOrderBySeller_id",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderBySeller_idRequest"
+              },
+              "example": {
+                "products": ["beEMtZ3Z_g8VWB-XqoQsN"]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Express"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "*"
+                    },
+                    "example": "*"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "217"
+                    },
+                    "example": "217"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "W/\"d9-z7YN9RP3KvKDX/aSgRNHryQsVW8\""
+                    },
+                    "example": "W/\"d9-z7YN9RP3KvKDX/aSgRNHryQsVW8\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Fri, 20 May 2022 17:58:52 GMT"
+                    },
+                    "example": "Fri, 20 May 2022 17:58:52 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "timeout=5"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateOrderBySeller_id"
+                },
+                "example": {
+                  "order": {
+                    "products": [
+                      "McTErN9p0cZuin5gNpl8g",
+                      "jzvh5z-5qs1IhvifbW2vG"
+                    ],
+                    "sellerId": "qrV6rgQ0KZhsJos9EXe8n",
+                    "buyerId": "0HD8zHhifmrcHC2o2Y3ix",
+                    "_id": "6287d6dc57294bf36828c438",
+                    "__v": 0
+                  },
+                  "message": "order was successfully"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/seller/create-product": {
+      "post": {
+        "tags": ["Sellers"],
+        "summary": "Create Product",
+        "operationId": "CreateProduct",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProductRequest"
+              },
+              "example": {
+                "name": "Beans",
+                "price": 1000.0
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Express"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "*"
+                    },
+                    "example": "*"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "131"
+                    },
+                    "example": "131"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "W/\"83-AuLIKclgIEdbiI80D5Kkxqq7QnA\""
+                    },
+                    "example": "W/\"83-AuLIKclgIEdbiI80D5Kkxqq7QnA\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 19 May 2022 13:26:07 GMT"
+                    },
+                    "example": "Thu, 19 May 2022 13:26:07 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "timeout=5"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateProduct"
+                },
+                "example": {
+                  "_id": "Dz81lQurP06OJZ5xsKC8k",
+                  "name": "Fish Face",
+                  "price": 1000,
+                  "sellerId": "qrV6rgQ0KZhsJos9EXe8n",
+                  "slug": "Fish-Face-dbVAA",
+                  "__v": 0
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/seller/create-catalog": {
+      "post": {
+        "tags": ["Sellers"],
+        "summary": "Create Catalog",
+        "operationId": "CreateCatalog",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCatalogRequest"
+              },
+              "example": {
+                "products": ["beEMtZ3Z_g8VWB-XqoQsN"]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Express"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "*"
+                    },
+                    "example": "*"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "138"
+                    },
+                    "example": "138"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "W/\"8a-p4fVjf2RNvpkl7VOjVKJEuQ3aRY\""
+                    },
+                    "example": "W/\"8a-p4fVjf2RNvpkl7VOjVKJEuQ3aRY\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 19 May 2022 14:16:02 GMT"
+                    },
+                    "example": "Thu, 19 May 2022 14:16:02 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "timeout=5"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCatalog"
+                },
+                "example": {
+                  "products": [
+                    "Dz81lQurP06OJZ5xsKC8k",
+                    "xIm4caih4i0nfPjSDFCP2"
+                  ],
+                  "sellerId": "qrV6rgQ0KZhsJos9EXe8n",
+                  "_id": "628651223927a00459b110ac",
+                  "__v": 0
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/seller/orders": {
+      "get": {
+        "tags": ["Sellers"],
+        "summary": "Get Orders",
+        "operationId": "GetOrders",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Express"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "*"
+                    },
+                    "example": "*"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "138"
+                    },
+                    "example": "138"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "W/\"8a-p4fVjf2RNvpkl7VOjVKJEuQ3aRY\""
+                    },
+                    "example": "W/\"8a-p4fVjf2RNvpkl7VOjVKJEuQ3aRY\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "Thu, 19 May 2022 14:16:02 GMT"
+                    },
+                    "example": "Thu, 19 May 2022 14:16:02 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "keep-alive"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string",
+                      "example": "timeout=5"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCatalog"
+                },
+                "example": {
+                  "products": [
+                    "Dz81lQurP06OJZ5xsKC8k",
+                    "xIm4caih4i0nfPjSDFCP2"
+                  ],
+                  "sellerId": "qrV6rgQ0KZhsJos9EXe8n",
+                  "_id": "628651223927a00459b110ac",
+                  "__v": 0
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RegisterRequest": {
+        "title": "RegisterRequest",
+        "required": ["email", "password", "name", "userType"],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "userType": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "email": "buyers@gmail.cm",
+          "password": "1",
+          "name": "Daniel Ifechukwu",
+          "userType": 0
+        }
+      },
+      "Register": {
+        "title": "Register",
+        "required": ["userId"],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "userId": "uh9F-IXqZxlwgSUTrDfh2"
+        }
+      },
+      "LoginRequest": {
+        "title": "LoginRequest",
+        "required": ["email", "password"],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "seller@gmail.cm",
+          "password": "1"
+        }
+      },
+      "Login": {
+        "title": "Login",
+        "required": ["accessToken"],
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJDelVBVWRBTnZpd2tGbzVQZkdvQUIiLCJwcm92aWRlciI6ImVtYWlsIiwiZW1haWwiOiJkYW5keUBnbWFpbC5tYWZhZmEiLCJ1c2VyVHlwZSI6MCwiaWF0IjoxNjUyOTU5NTk3LCJleHAiOjE2NTI5OTU1OTd9.USqLZZ_abIiAOjAXF3ngStKREfwOJhfbk3RP5cx81LM"
+        }
+      },
+      "ListOfSeller": {
+        "title": "ListOfSeller",
+        "required": ["_id", "email", "name", "slug", "userType", "__v"],
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "userType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "__v": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "_id": "kIg1AnlloNunDisEYW1pR",
+          "email": "dandynamicx@gmail.ma",
+          "name": "Daniel Ifechukwu",
+          "slug": "Daniel-Ifechukwu-IBknj",
+          "userType": 1,
+          "__v": 0
+        }
+      },
+      "CatalogBySeller_id": {
+        "title": "CatalogBySeller_id",
+        "required": ["_id", "products", "sellerId", "__v"],
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            },
+            "description": ""
+          },
+          "sellerId": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "_id": "6287b7171a4f43540ac43117",
+          "products": [
+            {
+              "_id": "McTErN9p0cZuin5gNpl8g",
+              "name": "Beans",
+              "price": 1000,
+              "slug": "Beans-W9dc_",
+              "__v": 0
+            }
+          ],
+          "sellerId": "qrV6rgQ0KZhsJos9EXe8n",
+          "__v": 0
+        }
+      },
+      "Product": {
+        "title": "Product",
+        "required": ["_id", "name", "price", "slug", "__v"],
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "_id": "McTErN9p0cZuin5gNpl8g",
+          "name": "Beans",
+          "price": 1000,
+          "slug": "Beans-W9dc_",
+          "__v": 0
+        }
+      },
+      "CreateOrderBySeller_idRequest": {
+        "title": "CreateOrderBySeller_idRequest",
+        "required": ["products"],
+        "type": "object",
+        "properties": {
+          "products": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "products": ["beEMtZ3Z_g8VWB-XqoQsN"]
+        }
+      },
+      "CreateOrderBySeller_id": {
+        "title": "CreateOrderBySeller_id",
+        "required": ["order", "message"],
+        "type": "object",
+        "properties": {
+          "order": {
+            "$ref": "#/components/schemas/Order"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "order": {
+            "products": ["McTErN9p0cZuin5gNpl8g", "jzvh5z-5qs1IhvifbW2vG"],
+            "sellerId": "qrV6rgQ0KZhsJos9EXe8n",
+            "buyerId": "0HD8zHhifmrcHC2o2Y3ix",
+            "_id": "6287d6dc57294bf36828c438",
+            "__v": 0
+          },
+          "message": "order was successfully"
+        }
+      },
+      "Order": {
+        "title": "Order",
+        "required": ["products", "sellerId", "buyerId", "_id", "__v"],
+        "type": "object",
+        "properties": {
+          "products": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          },
+          "sellerId": {
+            "type": "string"
+          },
+          "buyerId": {
+            "type": "string"
+          },
+          "_id": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "products": ["McTErN9p0cZuin5gNpl8g", "jzvh5z-5qs1IhvifbW2vG"],
+          "sellerId": "qrV6rgQ0KZhsJos9EXe8n",
+          "buyerId": "0HD8zHhifmrcHC2o2Y3ix",
+          "_id": "6287d6dc57294bf36828c438",
+          "__v": 0
+        }
+      },
+      "CreateProductRequest": {
+        "title": "CreateProductRequest",
+        "required": ["name", "price"],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "name": "Beans",
+          "price": 1000.0
+        }
+      },
+      "CreateProduct": {
+        "title": "CreateProduct",
+        "required": ["_id", "name", "price", "sellerId", "slug", "__v"],
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sellerId": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "_id": "Dz81lQurP06OJZ5xsKC8k",
+          "name": "Fish Face",
+          "price": 1000,
+          "sellerId": "qrV6rgQ0KZhsJos9EXe8n",
+          "slug": "Fish-Face-dbVAA",
+          "__v": 0
+        }
+      },
+      "CreateCatalogRequest": {
+        "title": "CreateCatalogRequest",
+        "required": ["products"],
+        "type": "object",
+        "properties": {
+          "products": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "products": ["beEMtZ3Z_g8VWB-XqoQsN"]
+        }
+      },
+      "CreateCatalog": {
+        "title": "CreateCatalog",
+        "required": ["products", "sellerId", "_id", "__v"],
+        "type": "object",
+        "properties": {
+          "products": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          },
+          "sellerId": {
+            "type": "string"
+          },
+          "_id": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "products": ["Dz81lQurP06OJZ5xsKC8k", "xIm4caih4i0nfPjSDFCP2"],
+          "sellerId": "qrV6rgQ0KZhsJos9EXe8n",
+          "_id": "628651223927a00459b110ac",
+          "__v": 0
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearer": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "Buyers"
+    },
+    {
+      "name": "Sellers"
+    }
+  ]
+}
