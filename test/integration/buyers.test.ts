@@ -17,7 +17,7 @@ describe('Buyers end points', function(){
           name:"buyerUser", email: `user+${nanoid(10)}@gmail.com`,password:"password",userType:0
      };
 
-     const products = []
+     let products = []
 
      const sellerUserBody = {
         name:"sellerUser", email: `user+${nanoid(10)}@gmail.com`,password:"password", userType:1
@@ -52,30 +52,6 @@ describe('Buyers end points', function(){
         expect(res.body.sellers).to.be.an('array');
         expect(res.body.sellers.length).greaterThan(0)
     });
-     
-    it('should allow buyers get the seller catalog at /api/buyer/seller-catalog/:seller_id', async ()=> {
-        let res =  await  request
-            .get(`/api/buyer/seller-catalog/${seller_id}`)
-            .set({ Authorization: `Bearer ${buyerAccessToken}` })
-            .send()
-        expect(res.status).to.equal(200);
-        expect(res.body).not.to.be.empty
-        expect(res.body).to.be.an('object');
-        expect(res.body.products).to.be.an('array');
-        for(let product in res.body.products ){
-            products.push(product['_id'])
-        }
-    });
-
-    it('should allow buyers create and order /api/buyer/create-order/:seller_id', async ()=> {
-       let res =  await  request
-            .post(`/api/buyer/create-order/${seller_id}`)
-            .set({ Authorization: `Bearer ${buyerAccessToken}` })
-            .send({products})
-        expect(res.status).to.equal(200);
-        expect(res.body).not.to.be.empty
-        expect(res.body).to.be.an('object');
-        // expect(res.body.products).to.be.an('array');
-    });
+    
 
 });
