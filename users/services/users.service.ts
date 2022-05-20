@@ -7,7 +7,7 @@ const log: IDebugger = debug('app:users-service');
 
 class UserService{
     async getSellers(limit:number, page:number) {
-         return usersDaos.list(limit,page,{userType:1})
+         return usersDaos.list({userType:1},limit,page)
     }
 
    async createUser(resource:CreateUserDto){

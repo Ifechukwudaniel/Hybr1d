@@ -53,7 +53,7 @@ class UserDao {
       return this.User.findOne({email}).select("_id email userType +password").exec()
     }
 
-    async list(limit=20, page=0, query={} ){
+    async list(query={} ,limit=20, page=0, ){
         return this.User.find(query)
         .limit(limit)
         .skip(limit*page)
