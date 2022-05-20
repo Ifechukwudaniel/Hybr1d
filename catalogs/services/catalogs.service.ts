@@ -10,8 +10,8 @@ class CatalogService{
       return catalogDaos.add(resource)
    }
 
-  async getCatalogs(sellerSlug:string){
-      // return catalogDaos.getCatalog()
+  async getSellerCatalogs(seller_id:string){
+      return catalogDaos.getCatalog(seller_id)
   }
 }
 

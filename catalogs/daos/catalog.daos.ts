@@ -7,8 +7,8 @@ class CatalogDao {
     Schema = mongooseService.getMongoose().Schema
 
     catalogSchema = new this.Schema({
-       products:[{type:String, ref:"catalog"}],
-       sellerId:{type:String, index:true, ref:"Users", unique:true},
+       products:[{type:String, ref:"Product"}],
+       sellerId:{type:String, index:true, ref:"Users", unique:true, select:false},
     }) 
 
     Catalog = mongooseService.getMongoose().model("Catalog", this.catalogSchema) 
@@ -29,12 +29,15 @@ class CatalogDao {
     }
 
     async getCatalog(sellerId:string){
-      if( await this.Catalog.findOne({sellerId:sellerId}) == null){
-       log("Seller Does not have a catalog ")
-       throw new Error("Seller Does not have a catalog");  
+      let sellerCatalog =   await this.Catalog.findOne({sellerId})
+        .populate({ path: "products", model: "Product" })
+        .exec()
+      log(sellerCatalog)
+      if(sellerCatalog == null){
+       log("catalog do not exist  ")
+       throw new Error("Seller Catalog does not exist");  
       } 
-      let sellerCatalogs =   await this.Catalog.findOne({sellerId}).exec()
-      return sellerCatalogs
+      return sellerCatalog
   }
 }
 
