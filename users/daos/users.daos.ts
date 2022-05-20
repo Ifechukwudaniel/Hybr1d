@@ -16,7 +16,7 @@ class UserDao {
        password:{type:String , select:false},
        name:String,
        slug:{type:String, index:true},
-       userType:[0,1]
+       userType:{type:[0,1], select:false}
     }) 
 
     User = mongooseService.getMongoose().model("User", this.userSchema) 
