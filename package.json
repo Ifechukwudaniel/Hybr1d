@@ -7,6 +7,7 @@
     "@types/jsonwebtoken": "^8.5.8",
     "@types/mocha": "^9.1.1",
     "@types/node": "^17.0.34",
+    "@types/shortid": "^0.0.29",
     "@types/supertest": "^2.0.12",
     "chai": "^4.3.6",
     "mocha": "^10.0.0",
@@ -19,16 +20,21 @@
   },
   "scripts": {
     "start": "tsc && node --unhandled-rejections=strict ./dist/app.js",
-    "dev": "export DEBUG=* &&  nodemon app.ts"
+    "dev": "export DEBUG=* &&  nodemon app.ts",
+    "test": "mocha -r ts-node/register 'test/**/*.test.ts'"
   },
   "dependencies": {
+    "argon2": "^0.28.5",
     "cors": "^2.8.5",
     "debug": "^4.3.4",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "express-validator": "^6.14.0",
     "express-winston": "^4.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.3",
+    "nanoid": "^3.3.4",
+    "slugify": "^1.6.5",
     "ts-node": "^10.7.0",
     "winston": "^3.7.2"
   }
