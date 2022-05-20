@@ -36,9 +36,12 @@ const loggerOptions: expressWinston.LoggerOptions = {
     ),
 };
 
-// if (!process.env.DEBUG) {
-//     loggerOptions.meta = false; // when not debugging, log requests as one-liners
-// }
+if (!process.env.DEBUG) {
+    loggerOptions.meta = false; // when not debugging, log requests as one-liners
+    if(typeof global.it == "function"){
+      loggerOptions.level = 'http' // if its a test dont show logs 
+    }
+}
 
 // initialize the logger with the above configuration
 app.use(expressWinston.logger(loggerOptions));
