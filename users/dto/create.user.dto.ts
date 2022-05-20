@@ -1,7 +1,8 @@
+import { UserType } from "../../common/middleware/common.user.types.enum";
+
 export interface CreateUserDto {
     email:string;
     password: string;
-    userType:number,
-    permissionLevel:number
+    userType:UserType
     name:string
 }

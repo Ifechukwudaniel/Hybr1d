@@ -16,7 +16,7 @@ class UserDao {
        password:{type:String , select:false},
        name:String,
        slug:{type:String, index:true},
-       userType:Number
+       userType:[0,1]
     }) 
 
     User = mongooseService.getMongoose().model("User", this.userSchema) 
@@ -26,9 +26,9 @@ class UserDao {
 
     async add(userFields:CreateUserDto) {
        // check user type 
-        if( userFields.userType ! == 0 || userFields.userType !== 0 ){
+        if( userFields.userType != UserType.BUYER && userFields.userType != UserType.SELLER ){
           log("Invalid User Type ")
-          throw new Error("Invalid user type"); 
+          throw new Error("Invalid UserType"); 
         }
       // check if email exists
        if(await this.User.findOne({ email: userFields.email}) != null){
@@ -40,7 +40,7 @@ class UserDao {
        let slug:String = ""
 
        // generate slug for user
-       if(userFields.userType === 1) slug = slugify(`${userFields.name} ${nanoid(5)}`,`-`)
+       if(userFields.userType !== UserType.SELLER) slug = slugify(`${userFields.name} ${nanoid(5)}`,`-`)
 
        const user  = new this.User({_id: userId, slug, ...userFields})
 
