@@ -5,10 +5,10 @@ import * as winston from 'winston';
 import * as expressWinston from 'express-winston';
 import cors from "cors"; 
 import debug from 'debug';
-import { AuthRoutes } from './auth/auth.routes.cofig';
+import { AuthRoutes } from './auth/auth.routes.config';
 import { CommonRoutesConfig } from './common/common.routes.config';
-import { ProductRoutes } from './products/products.routes.cofig';
-import { BuyersRoutes } from './buyers/buyers.routes.cofig';
+import { BuyersRoutes } from './buyers/buyers.routes.config';
+import { SellerRoutes } from './sellers/sellers.routes.config';
 
 const log : debug.IDebugger = debug("app");
 config();
@@ -46,15 +46,15 @@ app.use(expressWinston.logger(loggerOptions));
 let routes: CommonRoutesConfig[]  = []
 
 routes.push(new AuthRoutes(app))
-routes.push(new ProductRoutes(app))
 routes.push(new BuyersRoutes(app))
+routes.push(new SellerRoutes(app))
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Express + TypeScript Server');
 });
 
 
-server.listen(port, () => {
+export default server.listen(port, () => {
    log(`[server]: Server is running at https://localhost:${port}`);
    for (const route of routes) {
      log(`Route added  for `, route.getName())
