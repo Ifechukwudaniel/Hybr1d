@@ -1,5 +1,11 @@
+import dotenv from 'dotenv';
+const dotenvResult = dotenv.config();
+if (dotenvResult.error) {
+    throw dotenvResult.error;
+}
+
+
 import  express ,{ Express, Request, Response } from 'express';
-import {config} from 'dotenv';
 import {Server, createServer} from 'http';
 import * as winston from 'winston';
 import * as expressWinston from 'express-winston';
@@ -9,10 +15,9 @@ import { AuthRoutes } from './auth/auth.routes.config';
 import { CommonRoutesConfig } from './common/common.routes.config';
 import { BuyersRoutes } from './buyers/buyers.routes.config';
 import { SellerRoutes } from './sellers/sellers.routes.config';
+import commonErrorHandlerMiddleware from './common/middleware/common.error.handler.middleware';
 
 const log : debug.IDebugger = debug("app");
-config();
-
 const app: Express = express();
 const server : Server = createServer(app)
 const port = process.env.PORT;
@@ -63,3 +68,6 @@ export default server.listen(port, () => {
      log(`Route added  for `, route.getName())
    }
 });
+
+app.use(commonErrorHandlerMiddleware.handleErrorAllError);
+app.use(commonErrorHandlerMiddleware.handleNotFound);
