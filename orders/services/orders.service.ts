@@ -9,6 +9,10 @@ class OrderService{
    async createOrder(resource:CreateOrderDto){
       return orderDaos.add(resource)
    }
+
+   async getOrders(sellerId:string){
+      return orderDaos.list({sellerId})
+   }
 }
 
 export default new OrderService();

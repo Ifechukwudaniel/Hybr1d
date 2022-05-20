@@ -7,9 +7,9 @@ class OrdersDao {
     Schema = mongooseService.getMongoose().Schema
 
     ordersSchema = new this.Schema({
-       productId:{type:String, ref:"Products"},
-       sellerId:{type:String, ref:"Users"},
-       buyerId:{type:String, ref:"Users"},
+       products:[{type:String, ref:"Products"}],
+       sellerId:{type:String, ref:"Users", select:"false"},
+       buyerId:{type:String, ref:"Users", select:false}
     }) 
 
     Order = mongooseService.getMongoose().model("Order", this.ordersSchema) 
@@ -20,12 +20,11 @@ class OrdersDao {
 
     async add(fields:CreateOrderDto){
          const order  = new this.Order({...fields})
-         // save   orders
          await order.save()
          return order
     }
 
-    async list(limit=20, page=0, query={} ){
+    async list(query={}, limit=20, page=0){
       return this.Order.find(query)
       .limit(limit)
       .skip(limit*page)
