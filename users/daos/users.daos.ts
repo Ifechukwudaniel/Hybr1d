@@ -28,7 +28,7 @@ class UserDao {
       // check if email exists
        if(await this.User.findOne({ email: userFields.email}) != null){
           log("Duplicate Email Error")
-          throw new Error("Email Id has be used");  
+          throw new Error("Email Id has been used");  
        }
        
        let userId:String = nanoid()
@@ -44,12 +44,16 @@ class UserDao {
        return userId
     }
 
-  async list(limit=20, page=0, query={} ){
-      return this.User.find(query)
-      .limit(limit)
-      .skip(limit*page)
-      .exec()
-  }
+    async getUserByEmailWithPassword(email:string){
+      return this.User.findOne({email}).select("_id email userType +password").exec()
+    }
+
+    async list(limit=20, page=0, query={} ){
+        return this.User.find(query)
+        .limit(limit)
+        .skip(limit*page)
+        .exec()
+    }
 }
 
 export default  new UserDao()
