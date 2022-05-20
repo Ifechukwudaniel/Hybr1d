@@ -13,8 +13,15 @@ export class BuyersRoutes extends CommonRoutesConfig {
             authMiddleware.validateBearerToken,
             buyersController.listSellers
         ])
-        this.app.get('/buyer/seller-catalog/:seller_id')
-        this.app.post('/buyer/create-order/:seller_id')
+
+        this.app.get('/api/buyer/seller-catalog/:seller_id',[
+            authMiddleware.validateBearerToken,
+            buyersController.getSellerCatalog
+        ])
+        this.app.post('/api/buyer/create-order/:seller_id',[
+            authMiddleware.validateBearerToken,
+            buyersController.createOrder
+        ])
         return this.app
     }
 }
