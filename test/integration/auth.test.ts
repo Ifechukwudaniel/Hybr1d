@@ -11,13 +11,7 @@ describe('Auth end points', () => {
      before(() => {
          request =supertest.agent(app)
      });
-
-     after(()=>{
-         //shutdown express server
-         app.close(()=>{
-             mongoose.connection.close(true)
-         })
-     })
+ 
      let name="user"
      let password="secret"
 
