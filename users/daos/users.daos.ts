@@ -16,7 +16,7 @@ class UserDao {
        password:{type:String , select:false},
        name:String,
        slug:{type:String, index:true},
-       userType:{type:[0,1], select:false}
+       userType:{type:Number, default:0, select:false}
     }) 
 
     User = mongooseService.getMongoose().model("User", this.userSchema) 
@@ -40,7 +40,7 @@ class UserDao {
        let slug:String = ""
 
        // generate slug for user
-       if(userFields.userType !== UserType.SELLER) slug = slugify(`${userFields.name} ${nanoid(5)}`,`-`)
+       if(userFields.userType === UserType.SELLER) slug = slugify(`${userFields.name} ${nanoid(5)}`,`-`)
 
        const user  = new this.User({_id: userId, slug, ...userFields})
 
