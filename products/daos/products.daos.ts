@@ -12,7 +12,7 @@ class ProductDao {
        _id:String,
        name:String,
        price:Number,
-       sellerId:{type:String, index:true, ref:"Users"},
+       sellerId:{type:String, index:true, ref:"Users", select:false},
        slug:{type:String,unique:true, index:true}
     }) 
 
