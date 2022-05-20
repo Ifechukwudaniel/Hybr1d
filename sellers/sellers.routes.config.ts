@@ -23,7 +23,11 @@ import sellersController from './controllers/sellers.controller';
             sellersController.createCatalog
         ])
 
-        this.app.get('/seller/orders',[])
+        this.app.get('/api/seller/orders',[
+            authMiddleware.validateBearerToken,
+            commonPermissionMiddleware.onlyExpectedUserTypeCanDoThisAction(UserType.SELLER),
+            sellersController.getOrders
+        ])
         return this.app
     }
 }

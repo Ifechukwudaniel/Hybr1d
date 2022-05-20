@@ -2,6 +2,7 @@ import {NextFunction, Request, Response} from 'express'
 import debug,{IDebugger} from "debug";
 import catalogsService from '../../catalogs/services/catalogs.service';
 import productsService from '../../products/services/products.service';
+import ordersService from '../../orders/services/orders.service';
 
 const log: IDebugger = debug('app:users-controller');
 
@@ -24,6 +25,15 @@ class SellerController{
            return res.status(201).send(catalog)
         } catch (error) {
             next(error)
+        }
+    }
+    async  getOrders(req:Request,res:Response, next: NextFunction) {
+        try {
+            let {userId} = res.locals.jwt
+            let order =  await  ordersService.getOrders(userId)
+            return res.send({order, message:"found orders"})
+        } catch (error) {
+              return next(error)
         }
     }
 }
