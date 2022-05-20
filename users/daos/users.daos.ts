@@ -1,6 +1,7 @@
 import debug from "debug";
 import { nanoid } from 'nanoid'
 import slugify from "slugify";
+import { UserType } from "../../common/middleware/common.user.types.enum";
 import mongooseService  from "../../common/services/mongoose.service";
 import {CreateUserDto} from '../dto/create.user.dto'
 
@@ -24,7 +25,11 @@ class UserDao {
     }
 
     async add(userFields:CreateUserDto) {
-
+       // check user type 
+        if( userFields.userType ! == 0 || userFields.userType !== 0 ){
+          log("Invalid User Type ")
+          throw new Error("Invalid user type"); 
+        }
       // check if email exists
        if(await this.User.findOne({ email: userFields.email}) != null){
           log("Duplicate Email Error")
