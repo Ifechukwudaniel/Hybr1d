@@ -25,6 +25,10 @@ class UserDao {
     }
 
     async add(userFields:CreateUserDto) {
+       if(userFields.password.length <=6 ){
+         log("Password is to short")
+         throw new Error("Password Is To Short")
+       }
        // check user type 
         if( userFields.userType != UserType.BUYER && userFields.userType != UserType.SELLER ){
           log("Invalid User Type ")
